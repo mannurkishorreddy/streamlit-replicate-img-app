@@ -1,72 +1,72 @@
-# ✨ Image Generation App ✨
+# README for "Replicate Image Generator based on CSV Input" Project
 
-[![Streamlit Replicate Image App](https://github.com/tonykipkemboi/streamlit-replicate-img-app/actions/workflows/python-app.yml/badge.svg)](https://github.com/tonykipkemboi/streamlit-replicate-img-app/actions/workflows/python-app.yml)
+## Project Overview
 
-_Image Generator App: where art meets algorithms and dreams meet pixels!_ 🚀
+"Replicate Image Generator based on CSV Input" is a Streamlit application designed to transform text prompts into stunning visual images using the Replicate API. This application reads prompts from a CSV file, allows users to select a prompt, and generates images in different aspect ratios. The images are then saved to a GitHub repository for easy access and sharing.
 
-![Astronaut on a unicorn](./gallery/astro_on_unicorn.png)
+### Features
 
-## Overview
-
-Powered by cutting-edge AI models running on [Replicate](https://replicate.com/about) and wrapped in a Streamlit interface, this app lets you transform plain text prompts into mesmerizing visual masterpieces.
-
-## Technical Features
-
-- **Neural Model**: Leverages the power of the replicate.run model for image generation, providing detailed and accurate depictions.
-- **Streamlit Framework**: Built atop the versatile Streamlit library, ensuring a smooth and responsive UI/UX.
-- **Dynamic Customization**: You can peek "under the hood", tune hyperparameters like guidance_scale, prompt_strength, and more for fine-grained control.
-- **Gallery**: A curated gallery for inspiration, showcasing the prowess of the underlying model.
+- **Prompt Selection**: Users can choose from a variety of predefined prompts listed in a CSV file.
+- **Image Generation**: The app generates images based on the selected prompt using the Replicate model.
+- **Multiple Aspect Ratios**: Supports the creation of images in square and horizontal formats.
+- **GitHub Integration**: Automatically saves generated images to a specified GitHub repository.
 
 ## Getting Started
 
+### Prerequisites
+
+- Streamlit
+- Pandas
+- Replicate Python Client
+- Python Requests
+- Pillow (PIL)
+
+### Installation
+
 1. Clone the repository:
-
    ```bash
-   git clone https://github.com/tonykipkemboi/streamlit-replicate-img-app.git
+   git clone https://github.com/mannurkishorreddy/streamlit-replicate-img-app.git
    ```
 
-2. Navigate to the project directory:
-
+2. Navigate to the cloned directory and install the required packages:
    ```bash
-   cd streamlit-replicate-img-app
-   ```
-
-3. Install the dependencies:
-
-   ```python
    pip install -r requirements.txt
    ```
 
-4. Rename the `.streamlit/example_secrets.toml` file to `.streamlit/secrets.toml`.
-
-5. Paste your Replicate API token in the secrets.toml file:
-
+3. Run the Streamlit app:
    ```bash
-   REPLICATE_API_TOKEN = "paste-your-replicate-api-token-here"
+   streamlit run app.py
    ```
 
 ## Usage
 
-1. Run the Streamlit app:
+1. Open the Streamlit app in your web browser.
+2. Use the sidebar to select a prompt from the CSV file.
+3. Click on 'Generate Image' to start the image generation process.
+4. View the generated images in different aspect ratios.
+5. Check the GitHub repository for the saved images.
 
-   ```python
-   streamlit run streamlit_app.py
-   ```
+## Configuration
 
-2. Navigate to the provided local URL, and voila! Start crafting your visual narratives.
+- **API Tokens**: Set your Replicate and GitHub API tokens in the `.streamlit/secrets.toml` file.
+- **CSV File**: Update the CSV file with your prompts as needed.
 
-## Contributions
+## Contributing
 
-Your insights can make this tool even better! Feel free to fork, make enhancements, and raise a PR.
+Contributions to improve this project are welcome. Please follow these steps:
 
-## Attribution
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Commit your changes.
+4. Push to the branch.
+5. Open a pull request.
 
-- **Developed by**: The wizards over at [Stability AI](https://stability.ai/) 🧙‍♂️
+## License
 
-- **Model type**: Diffusion-based text-to-image generative model
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- **License**: [CreativeML Open RAIL++-M License](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md)
+## Acknowledgments
 
-- **Model Description**: This is a model that can be used to generate and modify images based on text prompts. It is a [Latent Diffusion Model](https://arxiv.org/abs/2112.10752) that uses two fixed, pretrained text encoders ([OpenCLIP-ViT/G](https://github.com/mlfoundations/open_clip) and [CLIP-ViT/L](https://github.com/openai/CLIP/tree/main)).
-
-- **Resources for more information**: Check out our [GitHub Repository](https://github.com/Stability-AI/generative-models) and the [SDXL report on arXiv](https://arxiv.org/abs/2307.01952).
+- Replicate for the image generation model.
+- Streamlit for the interactive web app framework.
+- GitHub for repository hosting and image storage.
