@@ -1,4 +1,4 @@
-# README for "Replicate Image Generator based on CSV Input" Project
+Replicate Image Generator based on CSV Input
 
 
 
