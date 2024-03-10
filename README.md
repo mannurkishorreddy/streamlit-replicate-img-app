@@ -53,6 +53,7 @@
 ## Configuration
 
 - **API Tokens**: Set your Replicate and GitHub API tokens in the `.streamlit/secrets.toml` file.
+- (For the GitHub API token, you can generate on from youtt GitHub: Settings -> Developer Settings -> Personal access tokens
 - **CSV File**: Update the CSV file with your prompts as needed.
 
 ## Contributing
