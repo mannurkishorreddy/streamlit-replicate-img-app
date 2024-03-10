@@ -1,5 +1,9 @@
 # README for "Replicate Image Generator based on CSV Input" Project
 
+
+
+[![Streamlit Replicate Image App](images/ME-Naics-7225-A-small-honey-bee-is-near-a_sq.jpg)
+
 ## Project Overview
 
 "Replicate Image Generator based on CSV Input" is a Streamlit application designed to transform text prompts into stunning visual images using the Replicate API. This application reads prompts from a CSV file, allows users to select a prompt, and generates images in different aspect ratios. The images are then saved to a GitHub repository for easy access and sharing.
