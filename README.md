@@ -2,7 +2,7 @@
 
 
 
-[![Streamlit Replicate Image App](images/ME-Naics-7225-A-small-honey-bee-is-near-a_sq.jpg)
+![Streamlit Replicate Image App](images/ME-Naics-7225-A-small-honey-bee-is-near-a_wide.jpg)
 
 ## Project Overview
 
