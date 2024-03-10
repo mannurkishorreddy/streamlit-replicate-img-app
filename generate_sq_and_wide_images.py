@@ -63,9 +63,9 @@ def main():
             try:
                 selected_row = df[df['Display Prompt'] == selected_display_prompt]
                 selected_prompt = selected_row['Prompt'].values[0]
-                naics_digits = selected_row['Naics'].astype(str).str[:2].values[0]
+                naics_digits = selected_row['Naics'].astype(str)
                 establishment_digits = selected_row['Establishments'].astype(str).str[-2:].values[0]
-                file_name_base = f"ME-Naics-{naics_digits}-{establishment_digits}"
+                file_name_base = f"ME-Naics-{naics_digits}"
                 
                 first_five_words = "-".join(selected_prompt.split()[:5])
 
@@ -85,13 +85,13 @@ def main():
                         response = requests.get(output[0])
                         if response.status_code == 200:
                             jpeg_content = convert_to_jpeg(response.content)
-                            filename = f"{file_name_base}-{first_five_words}_{suffix}.jpg"
+                            filename = f"{file_name_base}-{first_five_words}-{suffix}.jpg"
                             commit_message = "Add generated image"
                             save_image_to_github(
                                 jpeg_content, 
                                 filename, 
                                 GITHUB_REPOSITORY, 
-                                "images", 
+                                "images/square_and_wide_images", 
                                 commit_message, 
                                 GITHUB_TOKEN
                             )
