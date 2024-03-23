@@ -1,0 +1,3 @@
+[submodule "gallery/model-earth-image-gallery"]
+	path = gallery/model-earth-image-gallery
+	url = https://github.com/Tonyy456/model-earth-image-gallery.git
