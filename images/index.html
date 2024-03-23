@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub File List</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        img {
+            height: 100%;
+            max-height: 200px;
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+    </style>
 </head>
 <body>
     <div class="gallery">
         <!-- Thumbnails will be dynamically inserted here -->
     </div>
-
+    <div style="clear:both"></div>
+    <a href="../" >Up Level</a>
     <script>
         $(document).ready(function() {
             const owner = 'modelearth'; // owner_username
@@ -34,9 +43,12 @@
 
                         // Create thumbnail and add to gallery
                         const thumbnail = `<div class="thumbnail">
-                            <img src="${imagePath}" alt="${file.path}">
+                            <a href="${imagePath}" alt="${file.path}"><img src="${imagePath}" alt="${file.path}"></a>
+
+                            <!--
                             <p>Created: ${createdAt}</p>
                             <p>Updated: ${updatedAt}</p>
+                            -->
                         </div>`;
                         $('.gallery').append(thumbnail);
                     });
