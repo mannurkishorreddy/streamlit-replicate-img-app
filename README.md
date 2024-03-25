@@ -36,16 +36,17 @@
 
 3. Save a copy of example_secrets.toml as secrets.toml
 
-4. If you will be sending files to your GitHub account, add your GitHub API token to the `.streamlit/secrets.toml` file to GITHUB_TOKEN in secrets.toml. Also add your Github account and repo name to GITHUB_REPOSITORY.
+4. If you will be sending files to your GitHub account, in .streamlit/secrets.toml add your GITHUB_TOKEN and GITHUB_REPOSITORY.
 
 To create a token, in GitHub.com go to: Settings -> Developer Settings -> [Personal access tokens](https://github.com/settings/tokens)
 
 It's not necessary to check any of the access boxes for the GitHub token.
 
-5. Set your replicate toke
+5. Set your Replicate API Token in .streamlit/secrets.toml. 
 
+You can get a free [Replicate API Token](https://replicate.com/docs/reference/http#authentication), but they are slow.
 
-6. Update the CSV file with your prompts as needed.
+6. Update the CSV file with your prompts.
 
 7. Run the Streamlit app:
    ```bash
