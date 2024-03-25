@@ -38,22 +38,25 @@
 
 4.) If you will be sending files to your GitHub account, in .streamlit/secrets.toml add:
 
-GITHUB_TOKEN
-GITHUB_REPOSITORY
+GITHUB\_TOKEN
+GITHUB\_REPOSITORY
 
 To create a GitHub.com token, go to: Settings -> Developer Settings -> [Personal access tokens](https://github.com/settings/tokens)
-
 It's not necessary to check any of the access boxes for the GitHub token.
 
 5.) Set your Replicate API Token in .streamlit/secrets.toml. 
 
-You can get a free [Replicate API Token](https://replicate.com/docs/reference/http#authentication), but they are slow.
+You can get a free [Replicate API Token](https://replicate.com/docs/reference/http#authentication), but they are slow. [Purchased tokens](https://replicate.com/pricing) are affordable.
 
 6.) Update the CSV file with your prompts.
 
 7.) Run the Streamlit app:
    ```bash
    streamlit run streamlit_app.py
+   ```
+Or run the .csv prompt input version:
+   ```bash
+   streamlit run code_gen_images_sq_wide_ME.py
    ```
 
 8.) Open the Streamlit app in your web browser.
