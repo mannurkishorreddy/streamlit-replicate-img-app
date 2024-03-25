@@ -4,7 +4,7 @@
 
 ## Supports loading prompts from a CSV file, and outputing images directly to GitHub
 
-"Replicate Image Generator" is a Streamlit application designed to transform text prompts into stunning visual images using the Replicate API. Users can enter a prompt or optionally read prompts from a CSV file. Images are generated in different aspect ratios and can be saved directly to a GitHub repository for easy access and embedding using either our [JQuery Images Display](https://model.earth/replicate/images/) or our [React Gallery](https://model.earth/replicate/gallery/).
+"Replicate Image Generator" is a Streamlit application designed to transform text prompts into stunning visual images using the Replicate API. Users can enter a prompt or optionally read prompts from a CSV file. Images are generated in different aspect ratios and can be saved directly to a GitHub repository for easy access and embedding using either our [JQuery Images Display](https://model.earth/replicate/images/) or our [React Gallery](https://model.earth/replicate/gallery/view/).
 
 ### Features
 
