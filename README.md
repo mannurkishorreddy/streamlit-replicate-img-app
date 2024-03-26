@@ -42,7 +42,9 @@ GITHUB\_TOKEN
 GITHUB\_REPOSITORY
 
 To create a GitHub.com token, go to: Settings -> Developer Settings -> [Personal access tokens](https://github.com/settings/tokens)
-Checking the first three checkboxes should suffice: repo, workflow and write:packages
+Checking the first three checkboxes should suffice:
+
+repo, workflow and write:packages
 
 5.) Set your Replicate API Token in .streamlit/secrets.toml. 
 
