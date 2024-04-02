@@ -12,3 +12,5 @@ Source: https://docs.leonardo.ai/docs/generate-motion-using-variation-images
 motionStrength is set to max 10 since no movement occured at 5.
 
 Remove the API key before commiting changes to GitHub.
+
+We could integrate this script with our push to Github and run as a Google CoLab - where we could [store our API keys as Secrets](https://medium.com/@parthdasawant/how-to-use-secrets-in-google-colab-450c38e3ec75).
