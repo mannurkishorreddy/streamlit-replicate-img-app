@@ -9,4 +9,6 @@ Source: https://docs.leonardo.ai/docs/generate-motion-using-variation-images
 	pip install requests
 	python leonardo-video.py
 
-motionStrength is set to max since no movement occured at 5.
+motionStrength is set to max 10 since no movement occured at 5.
+
+Remove the API key before commiting changes to GitHub.
