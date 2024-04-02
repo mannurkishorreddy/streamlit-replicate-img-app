@@ -4,7 +4,8 @@ import base64
 import time
 import pandas as pd
 
-
+#api_key = st.secrets['leonardo_api_key']
+#model_id = st.secrets['leonardo_model_id']
 github_token = st.secrets["github_token_leonardo"]
 github_repository = "mannurkishorreddy/streamlit-replicate-img-app"
 
