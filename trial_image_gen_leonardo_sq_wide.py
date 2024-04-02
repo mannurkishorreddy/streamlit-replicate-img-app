@@ -2,90 +2,93 @@ import streamlit as st
 import requests
 import time
 
-# Function to generate images
-def generate_images(api_key, model_id, prompt):
+# Function to generate images with specified aspect ratios
+def generate_images(api_key, model_id, prompt, aspect_ratios):
     headers = {
         'Authorization': f'Bearer {api_key}',
         'Content-Type': 'application/json',
     }
-    data = {
-        'height': 512,
-        'width': 512,
-        'modelId': model_id,
-        'prompt': prompt,
-    }
-    
-    response = requests.post(
-        'https://cloud.leonardo.ai/api/rest/v1/generations',
-        headers=headers,
-        json=data
-    )
-    if response.status_code == 200:
-        response_json = response.json()
-        if 'sdGenerationJob' in response_json and 'generationId' in response_json['sdGenerationJob']:
-            return response_json['sdGenerationJob']['generationId']
+
+    generation_ids = []
+    for aspect_ratio in aspect_ratios:
+        width, height = aspect_ratio
+        data = {
+            'height': height,
+            'width': width,
+            'modelId': model_id,
+            'prompt': prompt,
+        }
+        
+        response = requests.post(
+            'https://cloud.leonardo.ai/api/rest/v1/generations',
+            headers=headers,
+            json=data
+        )
+        if response.status_code == 200:
+            response_json = response.json()
+            if 'sdGenerationJob' in response_json and 'generationId' in response_json['sdGenerationJob']:
+                generation_ids.append(response_json['sdGenerationJob']['generationId'])
+            else:
+                st.error('Error in response for aspect ratio {}: {}'.format(aspect_ratio, response_json))
         else:
-            st.error('The expected keys "sdGenerationJob" and/or "generationId" were not found in the response.')
-            st.json(response_json)  # This will print the entire JSON response in the app
-            return None
-    else:
-        st.error(f'Failed to generate images: HTTP Status Code {response.status_code}')
-        st.json(response.json())  # This will print the entire JSON response in the app
-        return None
+            st.error(f'Failed to generate images for aspect ratio {aspect_ratio}: HTTP Status Code {response.status_code}')
+            st.json(response.json())
+    
+    return generation_ids
 
 # Function to get the images
-import time
-
-def get_images(api_key, generation_id):
+def get_images(api_key, generation_ids):
     headers = {
         'Authorization': f'Bearer {api_key}',
     }
     
-    # Polling for the completion of image generation
-    while True:
-        response = requests.get(
-            f'https://cloud.leonardo.ai/api/rest/v1/generations/{generation_id}',
-            headers=headers
-        )
-        if response.status_code == 200:
-            response_json = response.json()
-            # Check if the generation is still pending
-            if response_json['generations_by_pk']['status'] != 'PENDING':
-                # Assuming the image URLs will be in the 'generated_images' key once completed
-                if response_json['generations_by_pk']['generated_images']:
-                    image_urls = [img['url'] for img in response_json['generations_by_pk']['generated_images']]
-                    return image_urls
+    image_urls = []
+    for generation_id in generation_ids:
+        while True:
+            response = requests.get(
+                f'https://cloud.leonardo.ai/api/rest/v1/generations/{generation_id}',
+                headers=headers
+            )
+            if response.status_code == 200:
+                response_json = response.json()
+                if response_json['generations_by_pk']['status'] != 'PENDING':
+                    if response_json['generations_by_pk']['generated_images']:
+                        for img in response_json['generations_by_pk']['generated_images']:
+                            image_urls.append(img['url'])
+                        break
+                    else:
+                        st.error('No images found for generation ID {}'.format(generation_id))
+                        break
                 else:
-                    st.error('The image generation is completed, but no images were found.')
-                    return None
+                    time.sleep(10)
             else:
-                # If still pending, wait for some time before the next check
-                time.sleep(10)  # Wait for 10 seconds before rechecking
-        else:
-            st.error(f'Failed to fetch images: HTTP Status Code {response.status_code}')
-            st.json(response.json())  # This will print the entire JSON response in the app
-            return None
-
+                st.error(f'Failed to fetch images for generation ID {generation_id}: HTTP Status Code {response.status_code}')
+                st.json(response.json())
+                break
+    
+    return image_urls
 
 # Streamlit interface
 st.title('Image Generation with Leonardo AI')
 
 # Fetch the api_key and model_id from secrets.toml
-api_key = st.secrets["leonardo_ai"]["api_key"]
-model_id = st.secrets["leonardo_ai"]["model_id"]
+api_key = "915fb846-4ab0-4349-b535-bf45e1fbc613"
+model_id = "6bef9f1b-29cb-40c7-b9df-32b51c1f67d3"
 
 prompt = st.text_input('Enter your prompt for image generation')
+
+aspect_ratios = [(512, 512), (1224, 512)]  # Square (1:1) and Ultra Wide (2.39:1)
 
 if st.button('Generate Image'):
     if not prompt:
         st.warning('Please enter a prompt for image generation.')
     else:
         with st.spinner('Generating images...'):
-            generation_id = generate_images(api_key, model_id, prompt)
-            if generation_id:
-                st.success('Image generated successfully!')
-                with st.spinner('Fetching the generated image...'):
-                    image_urls = get_images(api_key, generation_id)
+            generation_ids = generate_images(api_key, model_id, prompt, aspect_ratios)
+            if generation_ids:
+                st.success('Image generation initiated successfully!')
+                with st.spinner('Fetching the generated images...'):
+                    image_urls = get_images(api_key, generation_ids)
                     if image_urls:
                         for url in image_urls:
                             st.image(url)
