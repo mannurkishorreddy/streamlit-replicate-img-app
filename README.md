@@ -1,10 +1,10 @@
 <img src="images/ME-Naics-7225-A-small-honey-bee-is-near-a_wide.jpg" alt="Streamlit Replicate Image App" style="width:100%;max-width:1000px">
 
-# Replicate Image Generator
+# DreamStudio Storyboard Generator
 
-## Supports loading prompts from a CSV file, and outputing images directly to GitHub
+## Supports loading prompts from a CSV file and outputing storyboard content to GitHub
 
-"Replicate Image Generator" is a Streamlit application designed to transform text prompts into stunning visual images using the Replicate API. Users can enter a prompt or optionally read prompts from a CSV file. Images are generated in different aspect ratios and can be saved directly to a GitHub repository for easy access and embedding using either our [JQuery Images Display](https://model.earth/replicate/images/) or our [React Gallery](https://model.earth/replicate/gallery/view/).
+[Our Model.Earth team](https://model.earth/io) is creating a Streamlit application that transforms text prompts into storyboard images and videos using the Replicate, Leonardo and other generative AI APIs. Users can enter a prompt or load prompts from a CSV file. Images are generated in different aspect ratios and can be saved directly to a GitHub repository for easy access and embedding using either our [JQuery Images Display](https://model.earth/replicate/images/) or [React Gallery](https://model.earth/replicate/gallery/view/).
 
 ### Features
 
