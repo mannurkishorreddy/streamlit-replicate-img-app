@@ -9,7 +9,8 @@ $(document).ready(function() {
         method: 'GET',
         success: function(data) {
             // Filter out only image files (you may need to adjust this)
-            const imageFiles = data.tree.filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file.path));
+            // Omiting png since used for arrow images.
+            const imageFiles = data.tree.filter(file => /\.(jpg|jpeg|gif)$/i.test(file.path));
 
             // Now you have the list of image files with their details
             imageFiles.forEach(function(file) {

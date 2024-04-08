@@ -1,10 +1,10 @@
 <img src="images/ME-Naics-7225-A-small-honey-bee-is-near-a_wide.jpg" alt="Streamlit Replicate Image App" style="width:100%;max-width:1000px">
 
-# Replicate Image Generator
+# Storyboard Generator
 
-## Supports loading prompts from a CSV file, and outputing images directly to GitHub
+## Loads prompts from CSV files / Outputs storyboard content to GitHub
 
-"Replicate Image Generator" is a Streamlit application designed to transform text prompts into stunning visual images using the Replicate API. Users can enter a prompt or optionally read prompts from a CSV file. Images are generated in different aspect ratios and can be saved directly to a GitHub repository for easy access and embedding using either our [JQuery Images Display](https://model.earth/replicate/images/) or our [React Gallery](https://model.earth/replicate/gallery/view/).
+[Our Storyboard Team](https://model.earth/io), led by Kishor and Anthony, has created a Streamlit application that transforms text prompts into storyboard gallery images and videos using the Replicate, Leonardo and other generative AI APIs. Users can enter a prompt or load prompts from a CSV file. Images are generated in different aspect ratios and can be saved directly to a GitHub repository for easy access and embedding using either our [JQuery Images Display](https://model.earth/replicate/images/) or [React Gallery](https://model.earth/replicate/gallery/view/).
 
 ### Features
 
@@ -41,8 +41,12 @@
 GITHUB\_TOKEN
 GITHUB\_REPOSITORY
 
-To create a GitHub.com token, go to: Settings -> Developer Settings -> [Personal access tokens](https://github.com/settings/tokens)
-It's not necessary to check any of the access boxes for the GitHub token.
+To create a GITHUB_TOKEN, in GitHub.com go to: Settings -> Developer Settings -> [Personal access tokens](https://github.com/settings/tokens).  
+Checking the first three checkboxes should suffice: repo, workflow and write:packages
+
+The GITHUB_REPOSITORY would be one your own repo, in this format:
+
+   https://github.com/[your account]/[your repo]
 
 5.) Set your Replicate API Token in .streamlit/secrets.toml. 
 
