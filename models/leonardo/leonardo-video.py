@@ -1,7 +1,7 @@
 import requests
 import time
 
-api_key = ""
+api_key = "[Your Leonardo API Key here]"
 authorization = "Bearer %s" % api_key
 
 headers = {
@@ -16,7 +16,7 @@ url = "https://cloud.leonardo.ai/api/rest/v1/generations"
 payload = {
     "height": 768,
     "modelId": "1e60896f-3c26-4296-8ecc-53e2afecc132",
-    "prompt": "One with the vibeclipse hyperstitioned egregore.",
+    "prompt": "Golden hour photograph of family biking under a tree canopy near a location with Building Equipment Contractors in Maine in 2021.",
     "width": 1024,
     "num_images": 1,
     "alchemy": True
@@ -53,7 +53,7 @@ print("Create a variation of image: %s" % response.status_code)
 # Get the image variation
 url = "https://cloud.leonardo.ai/api/rest/v1/variations/%s" % variation_id
 
-time.sleep(60)
+time.sleep(100) # Original 60 second wait was not always enough
 
 response = requests.get(url, headers=headers)
 
