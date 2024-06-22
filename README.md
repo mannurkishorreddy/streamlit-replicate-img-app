@@ -1,9 +1,6 @@
-<img src="images/ME-Naics-7225-A-small-honey-bee-is-near-a_wide.jpg" alt="Streamlit Replicate Image App" style="width:100%;max-width:1000px">
+# Storyboard Generator (OLD)
 
-<!-- to do: activate display:none -->
-<a href="https://github.com/modelearth/replicate" style="float:right;displayX:none" class="hideGit">Fork on GitHub</a>
-
-# Storyboard Generator
+The current version of this project resides at [github.com/modelearth/requests](https://github.com/modelearth/requests)  
 
 ## Loads prompts from CSV files / Outputs storyboard content to GitHub
 
